@@ -36,13 +36,8 @@ namespace FizzBuzz
         }
         public static void Main(string[] args)
         {
-            
-            int rule3 = 0;
-            int rule5 = 0;
-            int rule7 = 0;
-            int rule11 = 0;
-            int rule13 = 0;
-            int rule17 = 0;
+
+            int rule3 = 0, rule5 = 0, rule7 = 0, rule11 = 0, rule13 = 0, rule17 = 0;
             
             int maxNumber = 0;
             string input;
