@@ -36,8 +36,14 @@ namespace FizzBuzz
         }
         public static void Main(string[] args)
         {
+
+            int maxNumber = 0;
+            string input;
+            Console.Write("Max Number: ");
+            input = Console.ReadLine();
+            maxNumber = Convert.ToInt32(input);
           
-            for (int number = 1; number <= 100; number++)
+            for (int number = 1; number <= maxNumber; number++)
             {
                 
                 var arr = new ArrayList();
