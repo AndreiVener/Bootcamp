@@ -17,6 +17,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/377d90b6a60246c8b0fcf7d6e7b8f936568ba0/31/751c7b15/Console.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Work/Bootcamp/FizzBuzz/FizzBuzz/Program.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Work/Bootcamp/FizzBuzz/FizzBuzz/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Work/Bootcamp/FizzBuzz/FizzBuzz/Program.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -64,7 +65,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1656332558824</updated>
-      <workItem from="1656332565492" duration="1858000" />
+      <workItem from="1656332565492" duration="6289000" />
     </task>
     <servers />
   </component>
