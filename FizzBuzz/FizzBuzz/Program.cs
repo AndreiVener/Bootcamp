@@ -7,6 +7,18 @@ namespace FizzBuzz
 {
     internal class Program
     {
+
+        public static int insertIfExistsBWord(int at,ArrayList arr)
+        {
+            int exists = 0;
+            var t = (string)arr[at];
+            if (t.Substring(0, 1) == "B")
+            {
+                arr.Insert(at, "Fezz");
+                exists = 1;
+            }
+            return exists;
+        }
         public static void print(int number, ArrayList arr)
         {
             if (arr.Count != 0)
@@ -45,12 +57,7 @@ namespace FizzBuzz
                     int foundStringStartingWithB = 0;
                     for (int at = 0; at < arr.Count && foundStringStartingWithB == 0; at++ )
                     {
-                        var t = (string)arr[at];
-                        if (t.Substring(0,1) == "B")
-                        {
-                            arr.Insert(at,"Fezz");
-                            foundStringStartingWithB = 1;
-                        }
+                        foundStringStartingWithB = insertIfExistsBWord(at, arr);
                     }
 
                     if (foundStringStartingWithB == 0) arr.Add("Fezz");

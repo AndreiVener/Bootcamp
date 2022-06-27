@@ -18,6 +18,7 @@
     <setting file="mock://C:/Work/Bootcamp/FizzBuzz/FizzBuzz/Program.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Work/Bootcamp/FizzBuzz/FizzBuzz/Program.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Work/Bootcamp/FizzBuzz/FizzBuzz/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Work/Bootcamp/FizzBuzz/FizzBuzz/Program.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -65,7 +66,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1656332558824</updated>
-      <workItem from="1656332565492" duration="6289000" />
+      <workItem from="1656332565492" duration="7571000" />
     </task>
     <servers />
   </component>
