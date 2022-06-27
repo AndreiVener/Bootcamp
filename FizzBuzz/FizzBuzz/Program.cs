@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 
 namespace FizzBuzz
 {
@@ -6,24 +7,32 @@ namespace FizzBuzz
     {
         public static void Main(string[] args)
         {
-            for (int k = 1; k <= 100; k++)
+          
+            for (int number = 1; number <= 100; number++)
             {
-                if (k % 15 == 0)
+                int stringFlag = 0;
+                StringBuilder sb = new StringBuilder();
+                if (number % 3 == 0)
                 {
-                    Console.WriteLine("FizzBuzz");
+                    stringFlag = 1;
+                    sb.Append("Fizz");
                 }
-                else if (k % 3 == 0)
+                if (number % 5 == 0)
                 {
-                    Console.WriteLine("Fizz");
-                }else if (k % 5 == 0)
-                {
-                    Console.WriteLine("Buzz");
-                }else
-                {
-                    Console.WriteLine(k);
+                    stringFlag = 1;
+                    sb.Append("Buzz");
                 }
-                
+
+                if (stringFlag == 1)
+                {
+                    Console.WriteLine(sb.ToString());
+                }
+                else
+                {
+                    Console.WriteLine(number);
+                }
             }
         }
+            
     }
 }
