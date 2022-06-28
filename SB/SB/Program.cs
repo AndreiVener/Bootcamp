@@ -3,16 +3,33 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
+using System.Linq;
 using System.Text;
 using CsvHelper;
+using NLog;
+using NLog.Config;
+using NLog.Fluent;
+using NLog.Targets;
 
 namespace SB
+
 {
+    
     internal class Program
     {
+        private static readonly ILogger logger = LogManager.GetCurrentClassLogger();
+        
         public static void Main(string[] args)
         {
-            var pathToCvs = "C:\\Work\\Bootcamp\\SB\\SB\\Transactions2014.csv";
+            var config = new LoggingConfiguration();
+            var target = new FileTarget { FileName = @"C:\Work\Logs\SupportBank.log", Layout = @"${longdate} ${level} - ${logger}: ${message}" };
+            config.AddTarget("File Logger", target);
+            config.LoggingRules.Add(new LoggingRule("*", LogLevel.Debug, target));
+            LogManager.Configuration = config;
+            logger.Info("Starting program");   
+           
+            
+            var pathToCvs = "C:\\Work\\Bootcamp\\SB\\SB\\DodgyTransactions2015.csv";
             bool running = true;
             while (running)
             {
@@ -47,13 +64,36 @@ namespace SB
 
         private static void ListAll(string pathToCsv)
         {
+            logger.Info("List All command is running");
             var reader = new StreamReader(pathToCsv);
             var csv = new CsvReader(reader,CultureInfo.InvariantCulture);
-            var transactions = csv.GetRecords<Transaction>();
+            bool isRecordBad = false;
+            csv.Configuration.BadDataFound = context =>
+            {
+                isRecordBad = true;
+                logger.Warn(context.RawRecord);
+            };
+            
+            logger.Info("Going through CSV");
+            
+            IEnumerable<Transaction> transactions = null;
+            
+            try
+            {
+                transactions = csv.GetRecords<Transaction>().ToList();
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex,"Error while going through CSV");
+            }
+            
+            logger.Info("Finished reading the CSV");
+
             IDictionary<string, Person> PersonDict = new Dictionary<string, Person>();
 
             foreach (var t in transactions)
             {
+                
                 if(!PersonDict.ContainsKey(t.From)) PersonDict.Add(t.From, new Person(t.From));    
                 if(!PersonDict.ContainsKey(t.To)) PersonDict.Add(t.To, new Person(t.To));
                 PersonDict[t.From].Owe -= t.Amount;

@@ -22,3 +22,5 @@ C:\Work\Bootcamp\SB\SB\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Work\Bootcamp\SB\SB\obj\Debug\SB.csproj.CopyComplete
 C:\Work\Bootcamp\SB\SB\obj\Debug\SB.exe
 C:\Work\Bootcamp\SB\SB\obj\Debug\SB.pdb
+C:\Work\Bootcamp\SB\SB\bin\Debug\NLog.dll
+C:\Work\Bootcamp\SB\SB\bin\Debug\NLog.xml
