@@ -13,14 +13,15 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="IEnumerable" />
+      </map>
+    </option>
+  </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/377d90b6a60246c8b0fcf7d6e7b8f936568ba0/31/751c7b15/Console.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Work/Bootcamp/FizzBuzz/FizzBuzz/Program.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Work/Bootcamp/FizzBuzz/FizzBuzz/Program.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Work/Bootcamp/FizzBuzz/FizzBuzz/Program.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Work/Bootcamp/FizzBuzz/FizzBuzz/Program.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Work/Bootcamp/FizzBuzz/FizzBuzz/Program.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Work/Bootcamp/FizzBuzz/FizzBuzz/Program.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -31,15 +32,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="FizzBuzz" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
@@ -68,7 +69,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1656332558824</updated>
-      <workItem from="1656332565492" duration="8413000" />
+      <workItem from="1656332565492" duration="9950000" />
+      <workItem from="1656399030611" duration="6347000" />
     </task>
     <servers />
   </component>
