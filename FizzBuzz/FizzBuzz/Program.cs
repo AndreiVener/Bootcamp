@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 
@@ -71,33 +72,41 @@ namespace FizzBuzz
 
         public static void Main(string[] args)
         {
-            List<Rule> rules = new List<Rule>();
-            rules.Add(new Rule(3, "Fizz"));
-            rules.Add(new Rule(5, "Buzz"));
-            rules.Add(new Rule(7, "Bang"));
-            rules.Add(new Rule(11, "BENG", onlyThis: true));
-            //rules.Add(new Rule(13,"BONG",priorityBeforeChar:"B"));
+            // List<Rule> rules = new List<Rule>();
+            // rules.Add(new Rule(3, "Fizz"));
+            // rules.Add(new Rule(5, "Buzz"));
+            // rules.Add(new Rule(7, "Bang"));
+            // rules.Add(new Rule(11, "BENG", onlyThis: true));
+            // //rules.Add(new Rule(13,"BONG",priorityBeforeChar:"B"));
+            //
+            // int maxNumber = 0;
+            // string input;
+            //
+            // Console.Write("Max Number: ");
+            // input = Console.ReadLine();
+            //
+            // maxNumber = Convert.ToInt32(input);
+            // string[] res = new string[maxNumber];
+            // int idx = 0;
+            //
+            // for (int number = 1; number <= maxNumber; number++)
+            // {
+            //     res[idx] = applyRules(number, rules);
+            //     idx++;
+            // }
+            //
+            // var fizz = new FizzBuzzer(res);
+            // foreach (var val in fizz)
+            // {
+            //     Console.WriteLine(val);
+            // }
 
-            int maxNumber = 0;
-            string input;
-
-            Console.Write("Max Number: ");
-            input = Console.ReadLine();
-
-            maxNumber = Convert.ToInt32(input);
-            string[] res = new string[maxNumber];
-            int idx = 0;
-
-            for (int number = 1; number <= maxNumber; number++)
+            var res = Enumerable.Range(1, 100).Select(x => x % 15 == 0 ? "FizzBuzz" : 
+                (x % 5 == 0 ? "Buzz" : (x % 3 == 0 ? "Fizz" : Convert.ToString(x))));
+            
+            foreach (var s in res)
             {
-                res[idx] = applyRules(number, rules);
-                idx++;
-            }
-
-            var fizz = new FizzBuzzer(res);
-            foreach (var val in fizz)
-            {
-                Console.WriteLine(val);
+                Console.WriteLine(s);
             }
         }
     }

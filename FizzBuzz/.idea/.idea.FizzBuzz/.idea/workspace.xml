@@ -7,7 +7,6 @@
     <list default="true" id="946853fa-1ffb-454d-89db-66c53bf52b99" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FizzBuzz/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FizzBuzz/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FizzBuzz/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FizzBuzz/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FizzBuzz/obj/Debug/FizzBuzz.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/FizzBuzz/obj/Debug/FizzBuzz.csprojAssemblyReference.cache" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,7 +16,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$/.." value="Rules2" />
+        <entry key="$PROJECT_DIR$/.." value="IEnumerable" />
       </map>
     </option>
   </component>
