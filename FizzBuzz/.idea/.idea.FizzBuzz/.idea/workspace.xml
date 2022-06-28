@@ -5,15 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="946853fa-1ffb-454d-89db-66c53bf52b99" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/FizzBuzz/Rule.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FizzBuzz/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FizzBuzz/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FizzBuzz/FizzBuzz.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/FizzBuzz/FizzBuzz.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FizzBuzz/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FizzBuzz/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FizzBuzz/obj/Debug/FizzBuzz.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/FizzBuzz/obj/Debug/FizzBuzz.csprojAssemblyReference.cache" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="Rules2" />
+      </map>
+    </option>
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/377d90b6a60246c8b0fcf7d6e7b8f936568ba0/31/751c7b15/Console.cs" root0="SKIP_HIGHLIGHTING" />

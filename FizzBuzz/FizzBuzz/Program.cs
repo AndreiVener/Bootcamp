@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Text;
-using FizzBuzz;
 
 
 namespace FizzBuzz
@@ -23,46 +21,42 @@ namespace FizzBuzz
             return exists;
         }
 
-        public static void print(int number, ArrayList arr)
+        public static string print(int number, ArrayList arr)
         {
+            StringBuilder sb = new StringBuilder();
             if (arr.Count != 0)
             {
-                foreach (var s in arr)
-                {
-                    Console.Write(s);
-                }
-
-                Console.WriteLine();
+                foreach (var s in arr) sb.Append(s);
             }
             else
             {
-                Console.WriteLine(number);
+                sb.Append(Convert.ToString(number));
             }
+
+            return sb.ToString();
         }
 
-        public static void applyRules(int number, List<Rule> rules)
+        public static string applyRules(int number, List<Rule> rules)
         {
             var arr = new ArrayList();
-            bool onlyRule = false;
 
             foreach (Rule rule in rules)
             {
                 if (number % rule.number == 0)
                 {
-                    if (rule.onlyThis == true)
+                    if (rule.onlyThis)
                     {
-                        Console.WriteLine(rule.word);
-                        onlyRule = true;
-                        break;
+                        return rule.word;
                     }
+
                     if (rule.priorityBeforeChar != " ")
                     {
-                        int foundStringSpecifiedChar= 0;
+                        int foundStringSpecifiedChar = 0;
                         for (int at = 0; at < arr.Count && foundStringSpecifiedChar == 0; at++)
                         {
-                            foundStringSpecifiedChar = insertIfExistsWord(at, arr,rule.priorityBeforeChar,rule.word);
+                            foundStringSpecifiedChar = insertIfExistsWord(at, arr, rule.priorityBeforeChar, rule.word);
                         }
-                        
+
                         if (foundStringSpecifiedChar == 0) arr.Add(rule.word);
                     }
                     else
@@ -71,15 +65,17 @@ namespace FizzBuzz
                     }
                 }
             }
-            if(onlyRule == false) print(number, arr);
+
+            return print(number, arr);
         }
+
         public static void Main(string[] args)
         {
             List<Rule> rules = new List<Rule>();
             rules.Add(new Rule(3, "Fizz"));
             rules.Add(new Rule(5, "Buzz"));
             rules.Add(new Rule(7, "Bang"));
-            rules.Add(new Rule(11,"BENG",onlyThis:true));
+            rules.Add(new Rule(11, "BENG", onlyThis: true));
             //rules.Add(new Rule(13,"BONG",priorityBeforeChar:"B"));
 
             int maxNumber = 0;
@@ -87,12 +83,74 @@ namespace FizzBuzz
 
             Console.Write("Max Number: ");
             input = Console.ReadLine();
-            maxNumber = Convert.ToInt32(input);
 
-            for (int number = 1; number <= maxNumber; number++) applyRules(number, rules);
-            
+            maxNumber = Convert.ToInt32(input);
+            string[] res = new string[maxNumber];
+            int idx = 0;
+
+            for (int number = 1; number <= maxNumber; number++)
+            {
+                res[idx] = applyRules(number, rules);
+                idx++;
+            }
+
+            var fizz = new FizzBuzzer(res);
+            foreach (var val in fizz)
+            {
+                Console.WriteLine(val);
+            }
+        }
+    }
+
+    public class FizzBuzzer : IEnumerable
+    {
+        public string[] res;
+
+        public FizzBuzzer(string[] list)
+        {
+            res = list;
         }
 
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        public FizzBuzzerEnum GetEnumerator()
+        {
+            return new FizzBuzzerEnum(res);
+        }
+    }
+
+    public class FizzBuzzerEnum : IEnumerator
+    {
+        public string[] res;
+        private int currentIndex = -1;
+
+        public FizzBuzzerEnum(string[] list)
+        {
+            res = list;
+        }
+
+        public bool MoveNext()
+        {
+            currentIndex++;
+            return (currentIndex < res.Length);
+        }
+
+        object IEnumerator.Current
+        {
+            get { return Current; }
+        }
+
+        public string Current
+        {
+            get { return res[currentIndex]; }
+        }
+
+        public void Reset()
+        {
+            currentIndex = -1;
+        }
     }
 }
-    
