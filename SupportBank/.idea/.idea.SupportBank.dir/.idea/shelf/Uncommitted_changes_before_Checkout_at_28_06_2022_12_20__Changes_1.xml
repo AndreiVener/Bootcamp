@@ -1,9 +1,0 @@
-<changelist name="Uncommitted_changes_before_Checkout_at_28_06_2022_12_20_[Changes]1" date="1656415258969" recycled="true" deleted="true">
-  <option name="PATH" value="$PROJECT_DIR$/.idea/.idea.SupportBank.dir/.idea/shelf/Uncommitted_changes_before_Checkout_at_28_06_2022_12_20_[Changes]1/shelved.patch" />
-  <option name="DESCRIPTION" value="Uncommitted changes before Checkout at 28/06/2022 12:20 [Changes]" />
-  <binary>
-    <option name="BEFORE_PATH" value="../FizzBuzz/FizzBuzz/obj/Debug/FizzBuzz.csprojAssemblyReference.cache" />
-    <option name="AFTER_PATH" value="../FizzBuzz/FizzBuzz/obj/Debug/FizzBuzz.csprojAssemblyReference.cache" />
-    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.SupportBank.dir/.idea/shelf/Uncommitted_changes_before_Checkout_at_28_06_2022_12_20_[Changes]1/FizzBuzz.csprojAssemblyReference.cache" />
-  </binary>
-</changelist>
