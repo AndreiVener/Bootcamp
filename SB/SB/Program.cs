@@ -27,9 +27,10 @@ namespace SB
             config.LoggingRules.Add(new LoggingRule("*", LogLevel.Debug, target));
             LogManager.Configuration = config;
             logger.Info("Starting program");   
-           
-            
             var pathToCvs = "C:\\Work\\Bootcamp\\SB\\SB\\DodgyTransactions2015.csv";
+
+            
+            
             bool running = true;
             while (running)
             {
@@ -49,7 +50,6 @@ namespace SB
                     StringBuilder sb = new StringBuilder();
                     sb.Append(split[1] + " " + split[2]);
                     string name = sb.ToString();
-                    Console.WriteLine("NAME: " + name);
                     List(pathToCvs,name);
                 }else{
                     Console.WriteLine("Invalid command! Try again.");
@@ -62,38 +62,50 @@ namespace SB
            
         }
 
-        private static void ListAll(string pathToCsv)
+        private static List<Transaction> getTransactions(string pathToCvs)
+        {
+            var reader = new StreamReader(pathToCvs);
+            var csvReader = new CsvReader(reader,CultureInfo.InvariantCulture);
+            
+            logger.Info("Started reading CSV");
+            csvReader.Read();
+            csvReader.ReadHeader();
+            int indexOfCsvRow = -1;
+            List<Transaction> transactions = new List<Transaction>();
+            while (csvReader.Read())
+            {
+                indexOfCsvRow++;
+                
+                try
+                {
+                    var transaction = new Transaction
+                    {
+                        From = csvReader.GetField("From"),
+                        To = csvReader.GetField("To"),
+                        Date = csvReader.GetField("Date"),
+                        Narrative = csvReader.GetField("Narrative"),
+                        Amount = csvReader.GetField<double>("Amount")
+                    };
+                    transactions.Add(transaction);
+                }
+                catch (Exception ex)
+                {
+                    logger.Error(ex, "Error while reading from CSV at row {0}",indexOfCsvRow);
+                }
+            }
+            logger.Info("Finished reading the CSV");
+            return transactions;
+        }
+        private static void ListAll(string path)
         {
             logger.Info("List All command is running");
-            var reader = new StreamReader(pathToCsv);
-            var csv = new CsvReader(reader,CultureInfo.InvariantCulture);
-            bool isRecordBad = false;
-            csv.Configuration.BadDataFound = context =>
-            {
-                isRecordBad = true;
-                logger.Warn(context.RawRecord);
-            };
+            List<Transaction> transactions = new List<Transaction>();
+            transactions = getTransactions(path);
             
-            logger.Info("Going through CSV");
-            
-            IEnumerable<Transaction> transactions = null;
-            
-            try
-            {
-                transactions = csv.GetRecords<Transaction>().ToList();
-            }
-            catch (Exception ex)
-            {
-                logger.Error(ex,"Error while going through CSV");
-            }
-            
-            logger.Info("Finished reading the CSV");
-
             IDictionary<string, Person> PersonDict = new Dictionary<string, Person>();
 
             foreach (var t in transactions)
             {
-                
                 if(!PersonDict.ContainsKey(t.From)) PersonDict.Add(t.From, new Person(t.From));    
                 if(!PersonDict.ContainsKey(t.To)) PersonDict.Add(t.To, new Person(t.To));
                 PersonDict[t.From].Owe -= t.Amount;
@@ -106,15 +118,15 @@ namespace SB
             {
                 Console.WriteLine(personEntity.Key + " Owe: \t" + personEntity.Value.Owe + " \tOwed: " + personEntity.Value.Owed);
             }
-            
+            logger.Info("LIST ALL command done!");
         }
 
-        private static void List(string pathToCsv, string name)
+        private static void List(string path, string name)
         {
-            var reader = new StreamReader(pathToCsv);
-            var csv = new CsvReader(reader,CultureInfo.InvariantCulture);
-            var transactions = csv.GetRecords<Transaction>();
-
+            logger.Info("List {0} -> command is running",name);
+            List<Transaction> transactions = new List<Transaction>();
+            transactions = getTransactions(path);
+            
             foreach (var t in transactions)
             {
                 if (t.From == name || t.To == name)
@@ -122,6 +134,8 @@ namespace SB
                     Console.WriteLine(t.Date + "\t " + t.Narrative);
                 }
             }
+            logger.Info("List {0} -> command is done",name);
+
         }
     }
 }
