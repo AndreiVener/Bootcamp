@@ -24,3 +24,5 @@ C:\Work\Bootcamp\SB\SB\obj\Debug\SB.exe
 C:\Work\Bootcamp\SB\SB\obj\Debug\SB.pdb
 C:\Work\Bootcamp\SB\SB\bin\Debug\NLog.dll
 C:\Work\Bootcamp\SB\SB\bin\Debug\NLog.xml
+C:\Work\Bootcamp\SB\SB\bin\Debug\Newtonsoft.Json.dll
+C:\Work\Bootcamp\SB\SB\bin\Debug\Newtonsoft.Json.xml

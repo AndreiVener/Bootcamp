@@ -1,11 +1,9 @@
-﻿using System;
-
-namespace SB
+﻿namespace SB
 {
-    public class Transaction
+    public class TransactionJsonMap
     {
-        public string From { get; set; }
-        public string To { get; set; }
+        public string FromAccount { get; set; }
+        public string ToAccount { get; set; }
         public string Narrative { get; set; }
         public string Date { get; set; }
         public double Amount { get; set; }
